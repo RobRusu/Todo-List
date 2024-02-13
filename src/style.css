@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  width: 100vw;
+  height: 100vh;
+  border: 5px solid black;
+}
+
+.menu {
+  display: grid;
+  grid-template-rows: 1fr 4fr;
+}
+
+.content {
+  display: grid;
+}
+
+.menu,
+.content {
+  width: 100%;
+  height: 100%;
+  border: 2px solid black;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: 1;
+  & button{
+    height: 100%;
+  }
+}
+
+.heading {
+  display: flex;
+  justify-content: center;
+  gap: 2vw;
+}
+
+.project {
+  display: flex;
+}
+
