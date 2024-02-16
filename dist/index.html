@@ -18,7 +18,23 @@
         <div class="projectList"></div>
       </div>
     </div>
-    <div class="content"></div>
+    <div class="content">
+      <dialog class="createTask">
+        <label for="taskTitle">Title: </label>
+        <input type="text" name="taskTitle" id="taskTitle">
+        <label for="taskDescription">Description: </label>
+        <input type="text" name="taskDescription" id="taskDescription">
+        <label for="taskDueDate">Due Date: </label>
+        <input type="date" name="taskDueDate" id="taskDueDate">
+        <label for="taskPriority">Priority: </label>
+        <select name="taskPriority" id="taskPriority">
+          <option value="Low">Low</option>
+          <option value="Medium" selected>Medium</option>
+          <option value="High">High</option>
+        </select>
+        <button class="submit">Create Task</button>
+      </dialog>
+    </div>
   </div>
 </body>
 </html>

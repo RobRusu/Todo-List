@@ -1,5 +1,6 @@
 import {deleteProject} from "./deleteProject";
 import {editProject} from "./editProject";
+import {createTemplate} from './addTask.js';
 
 export function addProject(){
   const projects = document.querySelector('.projectList');
@@ -42,6 +43,7 @@ export function addProject(){
     const projects = document.querySelector('.projectList');
     const finalName = document.createElement('p');
     finalName.classList.add('projectName');
+    finalName.addEventListener('click', createTemplate);
     if (!name.value){
       name.textContent = `Project ${projects.childNodes.length}`
       finalName.textContent = name.textContent;

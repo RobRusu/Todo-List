@@ -1,5 +1,6 @@
 import './style.css';
 import {addProject} from './addProject.js';
+import { createTask } from './createTask.js';
 
 // create filter buttons with a loop
 
@@ -17,4 +18,6 @@ function createFilters() {
 createFilters();
 
 const add = document.querySelector('.heading > button');
+const submit = document.querySelector('.createTask > .submit');
 add.addEventListener('click', addProject);
+submit.addEventListener('click', createTask);

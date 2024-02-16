@@ -17,8 +17,21 @@
   grid-template-rows: 1fr 4fr;
 }
 
-.content {
+/* .content {
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  padding: 20vh 5vw;
+} */
+
+.add {
+  display: flex;
+  align-items: center;
+}
+
+.add > img {
+  width: 3%;
+  height: 3%;
 }
 
 .menu,
