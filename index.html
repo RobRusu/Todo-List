@@ -34,6 +34,22 @@
         </select>
         <button class="submit">Create Task</button>
       </dialog>
+
+      <dialog class="editTask">
+        <label for="editTaskTitle">Title: </label>
+        <input type="text" name="editTaskTitle" id="editTaskTitle">
+        <label for="editTaskDescription">Description: </label>
+        <input type="text" name="editTaskDescription" id="editTaskDescription">
+        <label for="editTaskDueDate">Due Date: </label>
+        <input type="date" name="editTaskDueDate" id="editTaskDueDate">
+        <label for="editTaskPriority">Priority: </label>
+        <select name="editTaskPriority" id="editTaskPriority">
+          <option value="Low">Low</option>
+          <option value="Medium" selected>Medium</option>
+          <option value="High">High</option>
+        </select>
+        <button class="editSubmit">Edit Task</button>
+      </dialog>
     </div>
   </div>
 </body>
