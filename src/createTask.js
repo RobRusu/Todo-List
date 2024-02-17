@@ -1,7 +1,10 @@
 import { copyTaskDetails } from "./addTask";
+import { clearAddTaskDialog } from "./clearDialog";
+import { deleteTask } from "./deleteTask";
 
 export function createTask(){
   const task = copyTaskDetails();
+  const tasks = document.querySelectorAll('.task');
   const content = document.querySelector('.content')
   const taskDiv = document.createElement('div');
   taskDiv.classList.add('task');
@@ -38,9 +41,12 @@ export function createTask(){
   const deleteBtn = document.createElement('button');
   deleteBtn.classList.add('deleteBtn');
   deleteBtn.textContent = 'Delete';
+  deleteBtn.setAttribute('data-position', tasks.length)
+  deleteBtn.addEventListener('click', deleteTask);
 
   taskDiv.append(status, title, description, priority, dueDate, editBtn, deleteBtn);
   content.appendChild(taskDiv);
   const dialog = document.querySelector('.createTask');
   dialog.close();
+  clearAddTaskDialog();
 }
