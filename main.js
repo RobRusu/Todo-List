@@ -130,13 +130,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/clearDialog.js":
+/*!****************************!*\
+  !*** ./src/clearDialog.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   clearAddTaskDialog: () => (/* binding */ clearAddTaskDialog)\n/* harmony export */ });\nfunction clearAddTaskDialog(){\n  const inputs = document.querySelectorAll('.createTask > input');\n  inputs.forEach((input) =>{\n    input.value = '';\n  })\n  const priority = document.querySelector('#taskPriority')\n  priority.value = 'Medium';\n}\n\n//# sourceURL=webpack://todo-list/./src/clearDialog.js?");
+
+/***/ }),
+
 /***/ "./src/createTask.js":
 /*!***************************!*\
   !*** ./src/createTask.js ***!
   \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   createTask: () => (/* binding */ createTask)\n/* harmony export */ });\n/* harmony import */ var _addTask__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./addTask */ \"./src/addTask.js\");\n\n\nfunction createTask(){\n  const task = (0,_addTask__WEBPACK_IMPORTED_MODULE_0__.copyTaskDetails)();\n  const content = document.querySelector('.content')\n  const taskDiv = document.createElement('div');\n  taskDiv.classList.add('task');\n\n  const status = document.createElement('div');\n  status.classList.add('status');\n  const color = document.createElement('p');\n  color.classList.add('color');\n  const statusName = document.createElement('p');\n  statusName.classList.add('statusName');\n  statusName.textContent = task.status;\n  status.append(color, statusName);\n\n  const title = document.createElement('p');\n  title.classList.add('title');\n  title.textContent = task.title;\n\n  const description = document.createElement('p')\n  description.classList.add('description');\n  description.textContent = task.description;\n\n  const priority = document.createElement('p');\n  priority.classList.add('priority');\n  priority.textContent = task.priority;\n\n  const dueDate = document.createElement('p');\n  dueDate.classList.add('dueDate');\n  dueDate.textContent = task.dueDate;\n\n  const editBtn  = document.createElement('button');\n  editBtn.classList.add('editBtn');\n  editBtn.textContent = 'Edit';\n\n  const deleteBtn = document.createElement('button');\n  deleteBtn.classList.add('deleteBtn');\n  deleteBtn.textContent = 'Delete';\n\n  taskDiv.append(status, title, description, priority, dueDate, editBtn, deleteBtn);\n  content.appendChild(taskDiv);\n  const dialog = document.querySelector('.createTask');\n  dialog.close();\n}\n\n//# sourceURL=webpack://todo-list/./src/createTask.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   createTask: () => (/* binding */ createTask)\n/* harmony export */ });\n/* harmony import */ var _addTask__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./addTask */ \"./src/addTask.js\");\n/* harmony import */ var _clearDialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./clearDialog */ \"./src/clearDialog.js\");\n/* harmony import */ var _deleteTask__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./deleteTask */ \"./src/deleteTask.js\");\n\n\n\n\nfunction createTask(){\n  const task = (0,_addTask__WEBPACK_IMPORTED_MODULE_0__.copyTaskDetails)();\n  const tasks = document.querySelectorAll('.task');\n  const content = document.querySelector('.content')\n  const taskDiv = document.createElement('div');\n  taskDiv.classList.add('task');\n\n  const status = document.createElement('div');\n  status.classList.add('status');\n  const color = document.createElement('p');\n  color.classList.add('color');\n  const statusName = document.createElement('p');\n  statusName.classList.add('statusName');\n  statusName.textContent = task.status;\n  status.append(color, statusName);\n\n  const title = document.createElement('p');\n  title.classList.add('title');\n  title.textContent = task.title;\n\n  const description = document.createElement('p')\n  description.classList.add('description');\n  description.textContent = task.description;\n\n  const priority = document.createElement('p');\n  priority.classList.add('priority');\n  priority.textContent = task.priority;\n\n  const dueDate = document.createElement('p');\n  dueDate.classList.add('dueDate');\n  dueDate.textContent = task.dueDate;\n\n  const editBtn  = document.createElement('button');\n  editBtn.classList.add('editBtn');\n  editBtn.textContent = 'Edit';\n\n  const deleteBtn = document.createElement('button');\n  deleteBtn.classList.add('deleteBtn');\n  deleteBtn.textContent = 'Delete';\n  deleteBtn.setAttribute('data-position', tasks.length)\n  deleteBtn.addEventListener('click', _deleteTask__WEBPACK_IMPORTED_MODULE_2__.deleteTask);\n\n  taskDiv.append(status, title, description, priority, dueDate, editBtn, deleteBtn);\n  content.appendChild(taskDiv);\n  const dialog = document.querySelector('.createTask');\n  dialog.close();\n  (0,_clearDialog__WEBPACK_IMPORTED_MODULE_1__.clearAddTaskDialog)();\n}\n\n//# sourceURL=webpack://todo-list/./src/createTask.js?");
 
 /***/ }),
 
@@ -147,6 +157,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   deleteProject: () => (/* binding */ deleteProject)\n/* harmony export */ });\nfunction deleteProject(){\n  const projects = document.querySelectorAll('.project');\n  projects[this.dataset.position].remove();\n  recalculatePosition();\n}\n\nfunction recalculatePosition(){\n  const projects = document.querySelectorAll('.project');\n  const buttons = document.querySelectorAll('.projectDelete');\n  const edit = document.querySelectorAll('.projectEdit')\n  for (let i = 0; i < projects.length; i++){\n    projects[i].setAttribute('data-position', i);\n    buttons[i].setAttribute('data-position', i);\n    edit[i].setAttribute('data-position', i);\n  }\n}\n\n//# sourceURL=webpack://todo-list/./src/deleteProject.js?");
+
+/***/ }),
+
+/***/ "./src/deleteTask.js":
+/*!***************************!*\
+  !*** ./src/deleteTask.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   deleteTask: () => (/* binding */ deleteTask)\n/* harmony export */ });\nfunction deleteTask(){\n  const tasks = document.querySelectorAll('.task');\n  tasks[this.dataset.position].remove();\n  recalculatePosition();\n}\n\nfunction recalculatePosition(){\n  const deleteBtn = document.querySelectorAll('.deleteBtn');\n  for (let i = 0; i < deleteBtn.length; i++){\n    deleteBtn[i].setAttribute('data-position', i);\n  }\n}\n\n//# sourceURL=webpack://todo-list/./src/deleteTask.js?");
 
 /***/ }),
 
