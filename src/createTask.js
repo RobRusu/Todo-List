@@ -2,7 +2,6 @@ import { copyTaskDetails } from "./addTask";
 import { clearAddTaskDialog } from "./clearDialog";
 import { deleteTask } from "./deleteTask";
 import { editTask } from "./editTask";
-import { localStorage } from "./localStorage";
 
 export function createTask(){
   const task = copyTaskDetails();
@@ -59,5 +58,5 @@ export function createTask(){
   const dialog = document.querySelector('.createTask');
   dialog.close();
   clearAddTaskDialog();
-  localStorage(JSON.stringify(task));
+  window.localStorage.setItem(`${task.title}-${task.description}` ,JSON.stringify(task));
 }

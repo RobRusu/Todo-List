@@ -1,6 +1,7 @@
 import {deleteProject} from "./deleteProject";
 import {editProject} from "./editProject";
 import { allProjects } from "./projectList";
+import { allEditProjects } from "./projectList";
 import { showProjectData } from "./projectTasks";
 
 export function addProject(projectName){
@@ -58,6 +59,7 @@ export function addProject(projectName){
     }
     name.replaceWith(finalName);
     allProjects(finalName);
+    allEditProjects(finalName);
     finalName.addEventListener('click', function () {showProjectData(finalName.textContent)})
   }
 }

@@ -7,4 +7,5 @@ export function showProjectData(project){
       fetchData(tasks[i]);
     }
   }
+  console.log(tasks);
 }

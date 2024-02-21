@@ -1,4 +1,9 @@
 export function deleteTask(){
+  const titles = document.querySelectorAll('.taskTitle');
+  const descriptions = document.querySelectorAll('.description');
+  const combine = `${titles[this.dataset.position].textContent}-${descriptions[this.dataset.position].textContent}`;
+  localStorage.removeItem(combine);
+
   const tasks = document.querySelectorAll('.task');
   tasks[this.dataset.position].remove();
   recalculatePosition();
