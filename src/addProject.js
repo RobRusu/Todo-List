@@ -1,15 +1,17 @@
 import {deleteProject} from "./deleteProject";
 import {editProject} from "./editProject";
-import {createTemplate} from './addTask.js';
+import { allProjects } from "./projectList";
+import { showProjectData } from "./projectTasks";
 
-export function addProject(){
+export function addProject(projectName){
   const projects = document.querySelector('.projectList');
   const project = document.createElement('div');
   const name = document.createElement('input');
   const edit = document.createElement('button');
-  const deleteButton= document.createElement('button');
+  const deleteButton = document.createElement('button');
 
   name.classList.add('projectName');
+  name.textContent = projectName;
 
   edit.classList.add('projectEdit');
   edit.textContent = 'Edit';
@@ -27,6 +29,11 @@ export function addProject(){
   deleteButton.setAttribute('data-position', projects.childNodes.length - 1)
   edit.setAttribute('data-position', projects.childNodes.length - 1)
 
+  if (name.textContent === "General"){
+    name.value = 'General';
+    changeElement();
+  }
+
   name.focus();
   name.addEventListener('focusout', changeElement)
 
@@ -43,7 +50,6 @@ export function addProject(){
     const projects = document.querySelector('.projectList');
     const finalName = document.createElement('p');
     finalName.classList.add('projectName');
-    finalName.addEventListener('click', createTemplate);
     if (!name.value){
       name.textContent = `Project ${projects.childNodes.length}`
       finalName.textContent = name.textContent;
@@ -51,6 +57,7 @@ export function addProject(){
       finalName.textContent = name.value;
     }
     name.replaceWith(finalName);
+    allProjects(finalName);
+    finalName.addEventListener('click', function () {showProjectData(finalName.textContent)})
   }
-
 }

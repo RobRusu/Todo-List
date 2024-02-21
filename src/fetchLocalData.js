@@ -1,11 +1,8 @@
-import { copyTaskDetails } from "./addTask";
-import { clearAddTaskDialog } from "./clearDialog";
-import { deleteTask } from "./deleteTask";
 import { editTask } from "./editTask";
-import { localStorage } from "./localStorage";
+import { deleteTask } from "./deleteTask";
 
-export function createTask(){
-  const task = copyTaskDetails();
+export function fetchData(object){
+  const task = object;
   const tasks = document.querySelectorAll('.task');
   const content = document.querySelector('.content')
   const taskDiv = document.createElement('div');
@@ -56,8 +53,4 @@ export function createTask(){
 
   taskDiv.append(status, title, description, priority, dueDate, editBtn, deleteBtn);
   content.appendChild(taskDiv);
-  const dialog = document.querySelector('.createTask');
-  dialog.close();
-  clearAddTaskDialog();
-  localStorage(JSON.stringify(task));
 }

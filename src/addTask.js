@@ -3,6 +3,7 @@ import {Task} from './taskClass'
 
 export function createTemplate(){
   const content = document.querySelector('.content');
+  const header = document.createElement('header')
   const addTask = document.createElement('div');
   addTask.classList.add('add');
   const addIcon = new Image();
@@ -15,15 +16,16 @@ export function createTemplate(){
     const createTaskDialog = document.querySelector('.createTask');
     createTaskDialog.showModal();
   })
-  content.appendChild(addTask);
-  this.removeEventListener('click', createTemplate);
+  header.appendChild(addTask)
+  content.appendChild(header);
 }
 
 export function copyTaskDetails(){
+  const taskProject = document.querySelector('#taskProject').value;
   const taskTitle = document.querySelector('#taskTitle').value;
   const taskDescription = document.querySelector('#taskDescription').value;
   const taskPriority = document.querySelector('#taskPriority').value;
   const taskDueDate = document.querySelector('#taskDueDate').value;
-  const task = new Task(taskTitle, taskDescription, taskPriority, taskDueDate);
+  const task = new Task(taskProject, taskTitle, taskDescription, taskPriority, taskDueDate);
   return task;
 }

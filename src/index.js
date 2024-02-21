@@ -2,8 +2,7 @@ import './style.css';
 import {addProject} from './addProject.js';
 import { createTask } from './createTask.js';
 import { submitEditTask } from './submitEditTask.js';
-
-// create filter buttons with a loop
+import {createTemplate} from './addTask.js';
 
 function createFilters() {
   const filter = document.querySelector('.filters');
@@ -17,6 +16,7 @@ function createFilters() {
 }
 
 createFilters();
+createTemplate();
 
 const add = document.querySelector('.heading > button');
 const submit = document.querySelector('.createTask > .submit');
@@ -24,3 +24,5 @@ const submitEdit= document.querySelector('.editSubmit');
 add.addEventListener('click', addProject);
 submit.addEventListener('click', createTask);
 submitEdit.addEventListener('click', submitEditTask);
+
+addProject("General");
