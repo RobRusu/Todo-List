@@ -26,3 +26,6 @@ submit.addEventListener('click', createTask);
 submitEdit.addEventListener('click', submitEditTask);
 
 addProject("General");
+
+
+// TODO: make it to where the edit button edits the data in the local storage as well, send all the object/DOM data to local storage when Edit Task button is pressed

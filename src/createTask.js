@@ -56,7 +56,10 @@ export function createTask(){
   taskDiv.append(status, title, description, priority, dueDate, editBtn, deleteBtn);
   content.appendChild(taskDiv);
   const dialog = document.querySelector('.createTask');
+
+  const originalTaskName = `${task.title}-${task.description}`;
+
   dialog.close();
   clearAddTaskDialog();
-  window.localStorage.setItem(`${task.title}-${task.description}` ,JSON.stringify(task));
+  window.localStorage.setItem(originalTaskName ,JSON.stringify(task));
 }

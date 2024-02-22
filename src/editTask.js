@@ -14,6 +14,9 @@ export function editTask(){
   taskPriority.value = document.querySelectorAll('.priority')[position].textContent;
 
   editBtn.setAttribute('data-position', position);
+
+  const originalTaskName = `${taskTitle.value}-${taskDescription.value}`
+  window.localStorage.removeItem(originalTaskName);
   
   dialog.showModal();
 }
