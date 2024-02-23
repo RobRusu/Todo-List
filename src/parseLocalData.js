@@ -5,6 +5,8 @@ for (const task in localStorage){
 
   if (localStorage[task] === 'honey:core-sdk:*') continue;
 
+  if (task === 'projects') continue; 
+
   tasks.push(localStorage[task]);
 }
 

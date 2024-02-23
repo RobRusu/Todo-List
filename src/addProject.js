@@ -3,6 +3,7 @@ import {editProject} from "./editProject";
 import { allProjects } from "./projectList";
 import { allEditProjects } from "./projectList";
 import { showProjectData } from "./projectTasks";
+import { addProjectLocalData } from "./projectLocalData";
 
 export function addProject(projectName){
   const projects = document.querySelector('.projectList');
@@ -30,20 +31,24 @@ export function addProject(projectName){
   deleteButton.setAttribute('data-position', projects.childNodes.length - 1)
   edit.setAttribute('data-position', projects.childNodes.length - 1)
 
-  if (name.textContent === "General"){
-    name.value = 'General';
+  if (name.textContent === projectName){
+    name.value = projectName;
     changeElement();
   }
 
   name.focus();
   name.addEventListener('focusout', changeElement)
+  name.addEventListener('focusout', addProjectLocalData)
 
   name.addEventListener('keypress', (e) =>{
     name.removeEventListener('focusout', changeElement);
+    name.removeEventListener('focusout', addProjectLocalData);
     if (e.key === 'Enter'){
       changeElement();
+      addProjectLocalData();
     } else {
       name.addEventListener('focusout', changeElement)
+      name.addEventListener('focusout', addProjectLocalData)
     }
   })
 
