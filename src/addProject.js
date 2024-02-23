@@ -4,6 +4,7 @@ import { allProjects } from "./projectList";
 import { allEditProjects } from "./projectList";
 import { showProjectData } from "./projectTasks";
 import { addProjectLocalData } from "./projectLocalData";
+import { deleteProjectTasks } from "./deleteProjectTasks";
 
 export function addProject(projectName){
   const projects = document.querySelector('.projectList');
@@ -17,12 +18,13 @@ export function addProject(projectName){
 
   edit.classList.add('projectEdit');
   edit.textContent = 'Edit';
-  edit.addEventListener('click',editProject)
+  edit.addEventListener('click',editProject);
 
   deleteButton.classList.add('projectDelete');
-  deleteButton.textContent = 'Delete'
-  deleteButton.addEventListener('click', deleteProject)
-
+  deleteButton.textContent = 'Delete';
+  deleteButton.addEventListener('click', deleteProjectTasks);
+  deleteButton.addEventListener('click', deleteProject);
+ 
   project.append(name, edit, deleteButton);
 
   projects.appendChild(project);
