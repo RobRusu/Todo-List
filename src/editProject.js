@@ -1,5 +1,7 @@
 import { tasks } from "./parseLocalData";
 import { changeProjectList } from "./projectList";
+import { parseLocalData } from "./parseLocalData";
+import { showProjectData } from "./projectTasks";
 
 export function editProject(){
   const projectName = document.querySelectorAll('.projectName')
@@ -10,13 +12,17 @@ export function editProject(){
   input.focus();
 
   input.addEventListener('focusout', changeElement)
+  input.addEventListener('focusout', parseLocalData)
 
   input.addEventListener('keypress', (e) =>{
     input.removeEventListener('focusout', changeElement);
+    input.removeEventListener('focusout', parseLocalData);
     if (e.key === 'Enter'){
       changeElement();
+      parseLocalData();
     } else {
       input.addEventListener('focusout', changeElement)
+      input.addEventListener('focusout', parseLocalData)
     }
   })
 
@@ -45,6 +51,7 @@ export function editProject(){
         }
       }
     }
+    finalName.addEventListener('click', function () {showProjectData(finalName.textContent)})
     changeProjectList(initialProjectName, finalName.textContent)
     window.localStorage.setItem('projects', JSON.stringify(parsedProjects));
   }

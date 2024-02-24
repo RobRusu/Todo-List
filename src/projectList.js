@@ -1,3 +1,5 @@
+import { parseLocalData } from "./parseLocalData";
+
 export function allProjects(name){
   const list = document.querySelector('#taskProject')
   const projects = document.querySelector('.projectList');
@@ -6,6 +8,7 @@ export function allProjects(name){
   option.textContent = name.textContent;
   option.setAttribute('data-position', projects.childNodes.length - 1)
   list.appendChild(option);
+  parseLocalData();
 }
 
 export function allEditProjects(name){
@@ -16,6 +19,7 @@ export function allEditProjects(name){
   option.textContent = name.textContent;
   option.setAttribute('data-position', projects.childNodes.length - 1)
   list.appendChild(option);
+  parseLocalData();
 }
 
 export function changeProjectList(oldName, newName){
@@ -35,4 +39,5 @@ export function changeProjectList(oldName, newName){
       project.value = newName;
     }
   })
+  parseLocalData();
 }

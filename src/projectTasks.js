@@ -1,5 +1,6 @@
 import { tasks } from "./parseLocalData.js";
 import { fetchData } from "./fetchLocalData.js";
+import { parseLocalData } from "./parseLocalData.js";
 
 export function showProjectData(project){
   const clearTasks = document.querySelectorAll('.content > .task')
@@ -13,4 +14,5 @@ export function showProjectData(project){
       fetchData(tasks[i]);
     }
   }
+  parseLocalData();
 }

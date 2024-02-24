@@ -4,6 +4,7 @@ import { createTask } from './createTask.js';
 import { submitEditTask } from './submitEditTask.js';
 import {createTemplate} from './addTask.js';
 import { displayAllProjects } from './parseProjects.js';
+import { parseLocalData } from './parseLocalData.js';
 
 function createFilters() {
   const filter = document.querySelector('.filters');
@@ -24,5 +25,7 @@ const submit = document.querySelector('.createTask > .submit');
 const submitEdit= document.querySelector('.editSubmit');
 add.addEventListener('click', addProject);
 submit.addEventListener('click', createTask);
+submit.addEventListener('click', parseLocalData);
 submitEdit.addEventListener('click', submitEditTask);
 displayAllProjects();
+parseLocalData()

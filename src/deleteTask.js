@@ -1,3 +1,5 @@
+import { parseLocalData } from "./parseLocalData";
+
 export function deleteTask(){
   const titles = document.querySelectorAll('.taskTitle');
   const descriptions = document.querySelectorAll('.description');
@@ -7,6 +9,7 @@ export function deleteTask(){
   const tasks = document.querySelectorAll('.task');
   tasks[this.dataset.position].remove();
   recalculatePosition();
+  parseLocalData();
 }
 
 function recalculatePosition(){
