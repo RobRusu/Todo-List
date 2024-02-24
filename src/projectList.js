@@ -17,3 +17,22 @@ export function allEditProjects(name){
   option.setAttribute('data-position', projects.childNodes.length - 1)
   list.appendChild(option);
 }
+
+export function changeProjectList(oldName, newName){
+  const projects = document.querySelectorAll('#taskProject > option');
+  const editProjects = document.querySelectorAll('#editTaskProject > option');
+
+  projects.forEach((project) => {
+    if (project.textContent === oldName){
+      project.textContent = newName;
+      project.value = newName;
+    }
+  })
+
+  editProjects.forEach((project) => {
+    if (project.textContent === oldName){
+      project.textContent = newName;
+      project.value = newName;
+    }
+  })
+}

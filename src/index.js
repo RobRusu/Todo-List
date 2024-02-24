@@ -4,7 +4,6 @@ import { createTask } from './createTask.js';
 import { submitEditTask } from './submitEditTask.js';
 import {createTemplate} from './addTask.js';
 import { displayAllProjects } from './parseProjects.js';
-import { deleteProjectTasks } from './deleteProjectTasks.js';
 
 function createFilters() {
   const filter = document.querySelector('.filters');

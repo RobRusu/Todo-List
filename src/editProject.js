@@ -1,6 +1,10 @@
+import { tasks } from "./parseLocalData";
+import { changeProjectList } from "./projectList";
+
 export function editProject(){
   const projectName = document.querySelectorAll('.projectName')
   const input = document.createElement('input');
+  const initialProjectName = projectName[this.dataset.position].textContent
   input.value = projectName[this.dataset.position].textContent;
   projectName[this.dataset.position].replaceWith(input);
   input.focus();
@@ -17,6 +21,8 @@ export function editProject(){
   })
 
   function changeElement(){
+    const projectsLocalStorage = window.localStorage.getItem('projects');
+    const parsedProjects = JSON.parse(projectsLocalStorage);
     const projects = document.querySelector('.projectList');
     const finalName = document.createElement('p');
     finalName.classList.add('projectName');
@@ -27,6 +33,19 @@ export function editProject(){
       finalName.textContent = input.value;
     }
     input.replaceWith(finalName);
+    for (let i = 0; i < parsedProjects.length; i++){
+      if (parsedProjects[i] === initialProjectName){
+        parsedProjects[i] = finalName.textContent;
+        for (let j = 0; j < tasks.length; j++){
+          if (tasks[j].project === initialProjectName){
+            tasks[j].project = finalName.textContent;
+            const taskName = `${tasks[j].title}-${tasks[j].description}`
+            window.localStorage.setItem(taskName, JSON.stringify(tasks[j]));
+          }
+        }
+      }
+    }
+    changeProjectList(initialProjectName, finalName.textContent)
+    window.localStorage.setItem('projects', JSON.stringify(parsedProjects));
   }
-
 }
