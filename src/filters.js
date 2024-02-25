@@ -3,6 +3,21 @@ import { parseLocalData } from './parseLocalData';
 import { tasks } from './parseLocalData';
 import { fetchData } from './fetchLocalData';
 
+export function filterToday(){
+  parseLocalData();
+  const today = format(new Date(), 'yyyy-MM-dd');
+  const clearTasks = document.querySelectorAll('.content > .task')
+
+  clearTasks.forEach((task) =>{
+    task.remove();
+  })
+  for (let i = 0; i < tasks.length; i++){
+    if (tasks[i].dueDate === today){
+      fetchData(tasks[i]);
+    }
+  }
+}
+
 export function filterWeek(){
   parseLocalData();
 
@@ -17,5 +32,18 @@ export function filterWeek(){
     if (tasks[i].dueDate >= today && tasks[i].dueDate <= week){
       fetchData(tasks[i]);
     }
+  }
+}
+
+export function filterAll(){
+  parseLocalData();
+
+  const clearTasks = document.querySelectorAll('.content > .task')
+
+  clearTasks.forEach((task) =>{
+    task.remove();
+  })
+  for (let i = 0; i < tasks.length; i++){
+    fetchData(tasks[i]);
   }
 }
