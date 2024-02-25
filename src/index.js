@@ -6,6 +6,7 @@ import {createTemplate} from './addTask.js';
 import { displayAllProjects } from './parseProjects.js';
 import { parseLocalData } from './parseLocalData.js';
 import { filterToday } from './filterToday.js';
+import { filterWeek } from './filterWeek.js';
 
 
 function createFilters() {
@@ -33,5 +34,6 @@ submit.addEventListener('click', createTask);
 submit.addEventListener('click', parseLocalData);
 submitEdit.addEventListener('click', submitEditTask);
 todayFilter.addEventListener('click', filterToday);
+weekFilter.addEventListener('click', filterWeek)
 displayAllProjects();
 parseLocalData()
