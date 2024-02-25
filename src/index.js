@@ -5,6 +5,8 @@ import { submitEditTask } from './submitEditTask.js';
 import {createTemplate} from './addTask.js';
 import { displayAllProjects } from './parseProjects.js';
 import { parseLocalData } from './parseLocalData.js';
+import { filterToday } from './filterToday.js';
+
 
 function createFilters() {
   const filter = document.querySelector('.filters');
@@ -23,9 +25,13 @@ createTemplate();
 const add = document.querySelector('.heading > button');
 const submit = document.querySelector('.createTask > .submit');
 const submitEdit= document.querySelector('.editSubmit');
+const todayFilter = document.querySelector('.filter:nth-child(1)')
+const weekFilter = document.querySelector('.filter:nth-child(2)')
+const allFilter = document.querySelector('.filter:nth-child(3)')
 add.addEventListener('click', addProject);
 submit.addEventListener('click', createTask);
 submit.addEventListener('click', parseLocalData);
 submitEdit.addEventListener('click', submitEditTask);
+todayFilter.addEventListener('click', filterToday);
 displayAllProjects();
 parseLocalData()
