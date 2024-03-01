@@ -1,8 +1,8 @@
 import './style.css';
-import {addProject} from './addProject.js';
+import { addProject } from './addProject.js';
 import { createTask } from './createTask.js';
 import { submitEditTask } from './submitEditTask.js';
-import {createTemplate} from './addTask.js';
+import { createTemplate } from './addTask.js';
 import { displayAllProjects } from './parseProjects.js';
 import { parseLocalData } from './parseLocalData.js';
 import { filterToday } from './filters.js';
@@ -58,3 +58,4 @@ editCloseBtn.addEventListener('click', () =>{
 displayAllProjects();
 parseLocalData()
 filterAll();
+addProject("General");
