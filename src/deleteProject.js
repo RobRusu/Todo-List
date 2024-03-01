@@ -26,6 +26,7 @@ export function deleteProject(){
 
 function recalculatePosition(){
   const projects = document.querySelectorAll('.project');
+  const projectName = document.querySelectorAll('.projectName');
   const buttons = document.querySelectorAll('.projectDelete');
   const edit = document.querySelectorAll('.projectEdit');
   const options = document.querySelectorAll('#taskProject > option')
@@ -34,5 +35,6 @@ function recalculatePosition(){
     buttons[i].setAttribute('data-position', i);
     edit[i].setAttribute('data-position', i);
     options[i].setAttribute('data-position', i);
+    projectName[i].setAttribute('data-position', i);
   }
 }

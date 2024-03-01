@@ -8,22 +8,28 @@ import { parseLocalData } from './parseLocalData.js';
 import { filterToday } from './filters.js';
 import { filterWeek } from './filters.js';
 import { filterAll } from './filters.js';
+import { toggleStyleProject } from './toggleProject.js';
 
 
 function createFilters() {
   const filter = document.querySelector('.filters');
-  let names = ['Today', 'This week', 'All tasks'];
+  let names = ["Today's tasks", "This week's tasks", 'All tasks'];
   for (let i = 0; i < 3; i++){
-    const btn = document.createElement('button');
+    const btn = document.createElement('p');
     btn.classList.add('filter');
     btn.textContent = names[i];
     filter.appendChild(btn);
   }
 }
 
+
+
 createFilters();
 createTemplate();
 
+
+const closeBtn = document.querySelector('.close')
+const editCloseBtn = document.querySelector('.editClose')
 const add = document.querySelector('.heading > button');
 const submit = document.querySelector('.createTask > .submit');
 const submitEdit= document.querySelector('.editSubmit');
@@ -35,8 +41,20 @@ submit.addEventListener('click', createTask);
 submit.addEventListener('click', parseLocalData);
 submitEdit.addEventListener('click', submitEditTask);
 todayFilter.addEventListener('click', filterToday);
+todayFilter.addEventListener('click', toggleStyleProject);
 weekFilter.addEventListener('click', filterWeek);
+weekFilter.addEventListener('click', toggleStyleProject);
 allFilter.addEventListener('click', filterAll);
+allFilter.addEventListener('click', toggleStyleProject);
+allFilter.classList.add('toggle');
+closeBtn.addEventListener('click', () =>{
+  const dialog = document.querySelector('.createTask');
+  dialog.close();
+})
+editCloseBtn.addEventListener('click', () =>{
+  const dialog = document.querySelector('.editTask');
+  dialog.close();
+})
 displayAllProjects();
 parseLocalData()
 filterAll();

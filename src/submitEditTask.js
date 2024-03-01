@@ -13,8 +13,8 @@ export function submitEditTask(){
 
   document.querySelectorAll('.taskTitle')[position].textContent = title.value;
   document.querySelectorAll('.description')[position].textContent = description.value;
-  document.querySelectorAll('.dueDate')[position].textContent = dueDate.value;
-  document.querySelectorAll('.priority')[position].textContent = priority.value;
+  document.querySelectorAll('.dueDateWhen')[position].textContent = dueDate.value;
+  document.querySelectorAll('.priorityGrade')[position].textContent = priority.value;
 
   const task = new Task(project.value, title.value, description.value, priority.value, dueDate.value)
 

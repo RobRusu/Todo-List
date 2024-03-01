@@ -1,4 +1,3 @@
-import addTaskImg from './Add.svg';
 import {Task} from './taskClass'
 
 export function createTemplate(){
@@ -6,12 +5,14 @@ export function createTemplate(){
   const header = document.createElement('header')
   const addTask = document.createElement('div');
   addTask.classList.add('add');
-  const addIcon = new Image();
-  addIcon.src = addTaskImg;
+
+  const addBtn = document.createElement('button');
+  addBtn.textContent = '+';
+
   const addName = document.createElement('p');
   addName.textContent = 'Add task';
   addName.classList.add('addTask');
-  addTask.append(addIcon, addName);
+  addTask.append(addBtn, addName);
   addTask.addEventListener('click', () =>{
     const createTaskDialog = document.querySelector('.createTask');
     createTaskDialog.showModal();

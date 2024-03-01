@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MaybeDo List</title>
+  <title>MaybeDo</title>
   <script src="main.js" defer></script>
 </head>
 <body>
   <div class="main">
     <div class="menu">
-      <div class="filters"></div>
+      <h1 class="pageTitle">Maybe.Do</h1>
+      <div class="filters">
+      </div>
       <div class="projects">
         <div class="heading">
           <p class="title">Projects</p>
@@ -20,41 +22,73 @@
     </div>
     <div class="content">
       <dialog class="createTask">
-        <label for="taskProject">Project </label>
-        <select name="taskProject" id="taskProject">
-        </select>
-        <label for="taskTitle">Title: </label>
-        <input type="text" name="taskTitle" id="taskTitle">
-        <label for="taskDescription">Description: </label>
-        <input type="text" name="taskDescription" id="taskDescription">
-        <label for="taskDueDate">Due Date: </label>
-        <input type="date" name="taskDueDate" id="taskDueDate">
-        <label for="taskPriority">Priority: </label>
-        <select name="taskPriority" id="taskPriority">
-          <option value="Low">Low</option>
-          <option value="Medium" selected>Medium</option>
-          <option value="High">High</option>
-        </select>
+        <h1>Add task</h1>
+        <div>
+          <label for="taskProject">Project: </label>
+          <select name="taskProject" id="taskProject">
+          </select>
+        </div>
+
+        <div>
+          <label for="taskTitle">Title: </label>
+          <input type="text" name="taskTitle" id="taskTitle">
+        </div>
+
+        <div>
+          <label for="taskDescription">Description: </label>
+          <input type="text" name="taskDescription" id="taskDescription">
+        </div>
+
+        <div>
+          <label for="taskDueDate">Due Date: </label>
+          <input type="date" name="taskDueDate" id="taskDueDate">
+        </div>
+
+        <div>
+          <label for="taskPriority">Priority: </label>
+          <select name="taskPriority" id="taskPriority">
+            <option value="Low">Low</option>
+            <option value="Medium" selected>Medium</option>
+            <option value="High">High</option>
+          </select>
+        </div>
         <button class="submit">Create Task</button>
+        <button class="close">X</button>
       </dialog>
 
       <dialog class="editTask">
-        <label for="editTaskProject">Project </label>
-        <select name="editTaskProject" id="editTaskProject">
-        </select>
-        <label for="editTaskTitle">Title: </label>
-        <input type="text" name="editTaskTitle" id="editTaskTitle">
-        <label for="editTaskDescription">Description: </label>
-        <input type="text" name="editTaskDescription" id="editTaskDescription">
-        <label for="editTaskDueDate">Due Date: </label>
-        <input type="date" name="editTaskDueDate" id="editTaskDueDate">
-        <label for="editTaskPriority">Priority: </label>
-        <select name="editTaskPriority" id="editTaskPriority">
-          <option value="Low">Low</option>
-          <option value="Medium" selected>Medium</option>
-          <option value="High">High</option>
-        </select>
+        <h1>Edit task</h1>
+        <div>
+          <label for="editTaskProject">Project: </label>
+          <select name="editTaskProject" id="editTaskProject">
+          </select>
+        </div>
+
+        <div>
+          <label for="editTaskTitle">Title: </label>
+          <input type="text" name="editTaskTitle" id="editTaskTitle">
+        </div>
+
+        <div>
+          <label for="editTaskDescription">Description: </label>
+          <input type="text" name="editTaskDescription" id="editTaskDescription">
+        </div>
+
+        <div>
+          <label for="editTaskDueDate">Due Date: </label>
+          <input type="date" name="editTaskDueDate" id="editTaskDueDate">
+        </div>
+
+        <div>
+          <label for="editTaskPriority">Priority: </label>
+          <select name="editTaskPriority" id="editTaskPriority">
+            <option value="Low">Low</option>
+            <option value="Medium" selected>Medium</option>
+            <option value="High">High</option>
+          </select>
+        </div>
         <button class="editSubmit">Edit Task</button>
+        <button class="editClose">X</button>
       </dialog>
     </div>
   </div>

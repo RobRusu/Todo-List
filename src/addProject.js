@@ -5,19 +5,23 @@ import { allEditProjects } from "./projectList";
 import { showProjectData } from "./projectTasks";
 import { addProjectLocalData } from "./projectLocalData";
 import { deleteProjectTasks } from "./deleteProjectTasks";
+import { toggleStyleProject } from "./toggleProject";
+import Edit from './Edit.png'
+import Delete from './Delete.png'
 
 export function addProject(projectName){
   const projects = document.querySelector('.projectList');
   const project = document.createElement('div');
   const name = document.createElement('input');
-  const edit = document.createElement('button');
-  const deleteButton = document.createElement('button');
+  const edit = new Image;
+  edit.src = Edit;
+  const deleteButton = new Image;
+  deleteButton.src = Delete;
 
   name.classList.add('projectName');
   name.textContent = projectName;
 
   edit.classList.add('projectEdit');
-  edit.textContent = 'Edit';
   edit.addEventListener('click',editProject);
 
   deleteButton.classList.add('projectDelete');
@@ -58,6 +62,7 @@ export function addProject(projectName){
     const projects = document.querySelector('.projectList');
     const finalName = document.createElement('p');
     finalName.classList.add('projectName');
+    finalName.setAttribute('data-position', projects.childNodes.length - 1);
     if (!name.value){
       name.textContent = `Project ${projects.childNodes.length}`
       finalName.textContent = name.textContent;
@@ -68,5 +73,6 @@ export function addProject(projectName){
     allProjects(finalName);
     allEditProjects(finalName);
     finalName.addEventListener('click', function () {showProjectData(finalName.textContent)})
+    finalName.addEventListener('click', toggleStyleProject);
   }
 }

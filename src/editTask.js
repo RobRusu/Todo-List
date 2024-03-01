@@ -10,8 +10,8 @@ export function editTask(){
 
   taskTitle.value = document.querySelectorAll('.taskTitle')[position].textContent;
   taskDescription.value = document.querySelectorAll('.description')[position].textContent;
-  taskDueDate.value = document.querySelectorAll('.dueDate')[position].textContent;
-  taskPriority.value = document.querySelectorAll('.priority')[position].textContent;
+  taskDueDate.value = document.querySelectorAll('.dueDateWhen')[position].textContent;
+  taskPriority.value = document.querySelectorAll('.priorityGrade')[position].textContent;
 
   editBtn.setAttribute('data-position', position);
 
