@@ -14,13 +14,11 @@
 .main {
   display: grid;
   grid-template-columns: 1fr 5fr;
-  /* height: min(100vh); */
 }
 
 .menu {
   display: grid;
-  grid-template-rows: 1fr 2fr 15fr;
-  /* border-right: 0.5vw solid var(--yaleBlue); */
+  grid-template-rows: 1fr 2fr 7fr;
   background-color: var(--yaleBlue);
   color: var(--celeste);
   box-shadow: 5px 5px 5px black;
